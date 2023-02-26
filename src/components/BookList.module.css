@@ -1,0 +1,9 @@
+.bookList{
+    flex: 0 0 75%;
+    align-items: flex-start;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}

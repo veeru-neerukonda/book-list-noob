@@ -1,0 +1,38 @@
+.card {
+    margin-top: 1rem;
+    width: 292px;
+    text-align: left;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border: 1px solid black;
+    height: 350px;
+    /* overflow: hidden; */
+    
+}
+
+.card *{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cardImage{
+    display: block;
+    max-width: 100%;
+}
+
+.bookName{
+    font-size: 1.1rem;
+    margin-top: .5rem;
+    font-weight: 400;
+    color: #282626;
+    text-transform: capitalize;
+}
+
+.iconBox{
+    display: flex;
+    gap: .5rem;
+    justify-content: flex-end;
+
+    margin-bottom: 1.5rem;
+}
