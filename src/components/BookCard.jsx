@@ -5,15 +5,18 @@ import DeleteIcon from '@ricons/antd/CloseCircleFilled'
 import { Icon } from '@ricons/utils'
 
 import BookEdit from './BookEdit';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+
+import BookContext from '../Context/BookContext';
 
 
-export default function BookCard({name,id,deleteHandler,editHandler}){
+export default function BookCard({book}){
 
     const [editPhase,setEditPhase] = useState(false);
+    const {deleteBook,editBook} = useContext(BookContext);
 
     function handleDeleteName(){
-        deleteHandler(id);
+        deleteBook(book.id);
     }
 
     let CardContent;
@@ -29,15 +32,15 @@ export default function BookCard({name,id,deleteHandler,editHandler}){
                     </Icon>
                 </div>
     
-                <img className={Classes.cardImage} src={`https://picsum.photos/seed/${id}/300/300`} alt="book cover" />
-                <h2 className={Classes.bookName}>{name}</h2>
+                <img className={Classes.cardImage} src={`https://picsum.photos/seed/${book.id}/300/300`} alt="book cover" />
+                <h2 className={Classes.bookName}>{book.name}</h2>
             </>
         )
     }
     else{
-        CardContent = <BookEdit bookName={name} bookId={id} editHandler={(newName,id) => {
+        CardContent = <BookEdit book={book} editHandler={(newName,id) => {
             setEditPhase(false);
-            editHandler(newName,id);
+            editBook(newName,id)
         }}/>
     }
 

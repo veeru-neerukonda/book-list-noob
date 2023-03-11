@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import BookContext from '../Context/BookContext';
 
-export default function Form({createNewBook}){
+export default function Form(){
+    
     const [inputText,setInputText] = useState('');
+    const {addBook} = useContext(BookContext)
 
     function formSubmitHandler(e){
         e.preventDefault();
-        createNewBook(inputText);
+        addBook(inputText);
         setInputText("");
     }
 

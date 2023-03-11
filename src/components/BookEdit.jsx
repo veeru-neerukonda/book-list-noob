@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export default function BookEdit({bookName,bookId,editHandler}){
+export default function BookEdit({book,editHandler}){
 
-    const [inputValue,setInputValue] = useState(bookName);
+    const [inputValue,setInputValue] = useState(book.name);
 
     function onSubmitHandler(e){
         e.preventDefault();
-        editHandler(inputValue,bookId);
+        editHandler(inputValue,book.id);
     }
 
     return(

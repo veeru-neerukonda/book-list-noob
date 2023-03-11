@@ -1,8 +1,12 @@
 import Classes from './BookList.module.css'
 import BookCard from "./BookCard";
 
-export default function BookList({bookList,deleteHandler,editHandler}){
-    const bookCards = bookList.map((item) => <BookCard key={item.id} name={item.name} id={item.id} deleteHandler={deleteHandler} editHandler={editHandler} />)
+import BookContext from '../Context/BookContext';
+import { useContext } from 'react';
+
+export default function BookList(){
+    const {createdBooks} = useContext(BookContext);
+    const bookCards = createdBooks.map((item) => <BookCard key={item.id} book={item} />)
     return(
         <div className={Classes.bookList}>
             {bookCards}
